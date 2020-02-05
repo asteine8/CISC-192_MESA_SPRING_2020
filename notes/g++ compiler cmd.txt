@@ -1,0 +1,5 @@
+﻿# Base Compilation:
+
+g++ -o <target exe> <code file>
+
+g++ -o helloworld.exe helloworld.cpp
