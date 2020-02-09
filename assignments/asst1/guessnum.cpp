@@ -1,8 +1,9 @@
 /**------------------------------------------------------------------
+*  2/8/2020 Alexandra Steiner (oryx26)
+* 
 *  guessnum.cpp  -  guesses a number and gives a recommendation for each
 *               guess to result in a win every time
 *
-*  Alexandra Steiner (oryx26)
 *       => Code modified from guessnum.cpp by T. Harrisburg
 *  
 *
@@ -17,8 +18,6 @@
 *     guess when asking for a guess. Simply guess the recommended guess each round and you are garunteed to
 *     win.
 *
-*
-*  2/7/2020
 -------------------------------------------------------------------*/
 
 #include <iostream>
