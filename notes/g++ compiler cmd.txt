@@ -3,3 +3,9 @@
 g++ -o <target exe> <code file>
 
 g++ -o helloworld.exe helloworld.cpp
+
+
+# Running programs with text file inputs / outputs
+(Double angles <<, >> if running on windows)
+
+myprogram.exe < input.txt > outout.txt

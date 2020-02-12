@@ -1,0 +1,17 @@
+(C Hierarchy of Execution)
+
+() []          left to right  "group indicators"
+!  ~  ++  --  +  -  *  &  (type)  sizeof right to left  "unary operators"
+*  /  %        left to right   "multiplication"
++  -           left to right   "addition"
+<<  >>         left to right   "bit shifting"
+<  <=  >  >=   left to right   "inequality comparisons"
+==    !=       left to right   "equality comparisons"
+&              left to right   "bitwise AND"
+^              left to right   "bitwise XOR"
+|              left to right   "bitwise OR"
+&&             left to right   "logical AND"
+||             left to right   "logical OR"
+?:             right to left   "conditional operator"
+=  +=  -=  *=  /=  %=  &=  ^=  |=  <<= >>=   right to  left "assignment ops"
+,           left to right   "comma"
