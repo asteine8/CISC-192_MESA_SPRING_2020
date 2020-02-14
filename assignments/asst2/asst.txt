@@ -1,0 +1,73 @@
+Assignment: 25 points
+SIZES:
+	Write a short C++ program which uses sizeof() to find out
+	how many bytes all the basic data types occupy.
+
+Use the code in sizes.cpp (below) as a starting point.  Extend it so
+so that every native data type is covered.	
+
+Here is an example C++ program which provides you an
+example of how your code should look.
+
+It starts with a "Comment Block" so others can maintain your code.
+Read the code which is working, then simple common sense to combine that
+example with each type of data.
+
+==================================================
+
+/*-----------------------------------------------------------------
+	sizes.cpp
+	Write a short C++ program which uses sizeof() to find out
+	how many bytes all the basic data types occupy.
+	T.E. Harrisburg / hhaller
+	Tue Oct 31 00:00:00 PST 1989
+	COMPILE: g++ sizes.cpp
+-----------------------------------------------------------------*/
+
+#include <cstdio>
+#include <cctype>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+
+using namespace std ;
+
+int main (int argc, char *argv[], char **env)
+{
+	cout << "Size of an int is: " << sizeof(int) << endl ;
+	return EXIT_SUCCESS ;
+} // main ends
+
+
+====================================================
+
+Now, here are the types of data:
+
+	bool
+	char
+	short
+	int
+	long
+	long long
+	float
+	double
+	long double
+	
+	...and the pointers to each:
+	int *
+	long *
+
+	and short,int,long,long long all may be prefaced with:
+	unsigned
+	or
+	signed
+	or
+	register
+
+	So you can figure out from looking at the program code
+	that you can send each type to the sizeof() operator,
+	and it will return a number, which is the size (in bytes)
+	of that data type.  
+
+	We ought to be able to get this one done in a lab session during class,
+	since there's not a heavy Coffee Requirement here.

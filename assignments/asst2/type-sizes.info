@@ -1,0 +1,49 @@
+The size of the bool datatype is: 1 bytes
+The size of the bool* datatype is: 8 bytes
+
+The size of the char datatype is: 1 bytes
+The size of the char* datatype is: 8 bytes
+The size of the char** datatype is: 8 bytes
+
+The size of the wchar_t datatype is: 4 bytes
+The size of the wchar_t* datatype is: 8 bytes
+
+The size of the short datatype is: 2 bytes
+The size of the short* datatype is: 8 bytes
+The size of the unsigned short datatype is: 2 bytes
+The size of the signed short datatype is: 2 bytes
+
+The size of the int datatype is: 4 bytes
+The size of the int* datatype is: 8 bytes
+The size of the unsigned int datatype is: 4 bytes
+The size of the signed int datatype is: 4 bytes
+
+The size of the long datatype is: 8 bytes
+The size of the long* datatype is: 8 bytes
+The size of the unsigned long datatype is: 8 bytes
+The size of the signed long datatype is: 8 bytes
+
+The size of the long long datatype is: 8 bytes
+The size of the long long* datatype is: 8 bytes
+The size of the unsigned long long datatype is: 8 bytes
+The size of the signed long long datatype is: 8 bytes
+
+The size of the float datatype is: 4 bytes
+The size of the float* datatype is: 8 bytes
+
+The size of the double datatype is: 8 bytes
+The size of the double* datatype is: 8 bytes
+
+The size of the long double datatype is: 16 bytes
+The size of the long double* datatype is: 8 bytes
+
+The size of the uint8_t datatype is: 1 bytes
+The size of the int8_t datatype is: 1 bytes
+The size of the uint16_t datatype is: 2 bytes
+The size of the int16_t datatype is: 2 bytes
+The size of the uint32_t datatype is: 4 bytes
+The size of the int32_t datatype is: 4 bytes
+The size of the uint64_t datatype is: 8 bytes
+The size of the int64_t datatype is: 8 bytes
+The size of the __uint128_t datatype is: 16 bytes
+The size of the __int128_t datatype is: 16 bytes

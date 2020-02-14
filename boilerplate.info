@@ -1,0 +1,9 @@
+/** 
+ * type-sizes.cpp
+ * 
+ * This program displays the size in bytes of most common datatypes
+ * defined in the C++ standard distribution
+ * 
+ * Alexandra Steiner - oryx26
+ * Feb 14th, 2019
+ */
