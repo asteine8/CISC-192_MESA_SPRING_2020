@@ -73,18 +73,5 @@ int main() {
     DISPLAY_SIZE(long double);
     DISPLAY_SIZE(long double*);
 
-    NEW_LINE;
-
-    DISPLAY_SIZE(uint8_t);
-    DISPLAY_SIZE(int8_t);
-    DISPLAY_SIZE(uint16_t);
-    DISPLAY_SIZE(int16_t);
-    DISPLAY_SIZE(uint32_t);
-    DISPLAY_SIZE(int32_t);
-    DISPLAY_SIZE(uint64_t);
-    DISPLAY_SIZE(int64_t);
-    DISPLAY_SIZE(__uint128_t);
-    DISPLAY_SIZE(__int128_t);
-
     return 0;
 }
