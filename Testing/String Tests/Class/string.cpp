@@ -19,6 +19,10 @@ int main() {
     // cout << "Enter another String: ";
     // cin.getline(inputString2, BUFFER_SIZE);
 
+    cout << "Your String: ";
+    printStr(inputString1);
+    cout << endl;
+
     char* trimmedStr = trimStr(inputString1);
     cout << "New String: ";
     printStr(trimmedStr);
@@ -29,10 +33,12 @@ int main() {
 
 void printStr(char* str) {
     int i = 0;
+    cout << "'";
     while (*str != '\0') {
-        cout << *str;
+        cout << (*str);
         str++;
     }
+    cout << "'";
 }
 
 // Trims whitespace characters from end of char array
@@ -54,7 +60,7 @@ char* trimStr(char* str) {
         newStringSize--;
     }
 
-    cout << "New String Size: " << newStringSize << " | String Size: " << strSize << endl;
+    // cout << "New String Size: " << newStringSize << " | String Size: " << strSize << endl;
 
     // Generate new string from the heap with 1 additional char for the '\0' character
     char* trimmedStr = new char[newStringSize+1];
@@ -63,11 +69,8 @@ char* trimStr(char* str) {
         cout << "Error: memory could not be allocated" << endl;
     }
 
-    cout << "Initial Position: " << trimmedStr << endl;
     // Set trimmedStr pointer to end of new string
     trimmedStr += newStringSize;
-
-    cout << "New Position: " << trimmedStr << endl;
 
     // Set '\0' character at end
     *trimmedStr = '\0';
@@ -80,14 +83,8 @@ char* trimStr(char* str) {
         trimmedStr--;
     }
 
-    char* ptr = trimmedStr;
-    while (*ptr != '\0') {
-        cout << *ptr;
-        ptr++;
-    }
-    cout << endl;
-
-    cout << "End Position: " << trimmedStr << endl;
+    // Go back up one memory location to initial location
+    trimmedStr++;
 
     return trimmedStr;
 }
