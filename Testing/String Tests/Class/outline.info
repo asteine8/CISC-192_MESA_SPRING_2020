@@ -1,14 +1,15 @@
 I want:
 
-    void printString(char* str);
+    +void printString(char* str);
 
-    char* concatStrings(char* str1, char* str2)
+    +char* concatStrings(char* str1, char* str2)
+    +char* copyString(char* str);
 
-    void reverseString(char* str);
-    void toUpper(char* str);
-    void toLower(char* str);
+    +void reverseString(char* str);
+    +void toUpper(char* str);
+    +void toLower(char* str);
 
-    int searchString(char* str, char* searchTerm);
+    +int searchString(char* str, char* searchTerm);
 
-    bool compareStrings(char* str1, char* str2);
+    +bool compareStrings(char* str1, char* str2);
 
