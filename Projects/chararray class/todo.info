@@ -1,0 +1,17 @@
+
+    > Add operator overrides for:
+        > + (append)
+        > == (compare)
+        > != (inverse compare)
+        > << (to cout)
+        > >> (from cin)
+        > ! (reverse) [Unary]
+
+    > Add methods for:
+        > int* findAllInstancesOf(char* str);
+        > int* findAllInstancesOf(CharArray str);
+        > void replaceAllInstancesOf(char* str);
+        > void replaceAllInstancesOf(CharArray str);
+        > CharArray* splitAt(char* str);
+        > CharArray* splitAt(CharArray str);
+    
