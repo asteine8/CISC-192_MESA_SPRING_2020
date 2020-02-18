@@ -1,5 +1,6 @@
 #include "chararray.h"
 
+
 CharArray::CharArray() {
     array = new char[0];
 }
@@ -188,3 +189,4 @@ int CharArray::numCharacters(char* str) {
     numchars++; // Add one for the '\0' char
     return numchars;
 }
+
