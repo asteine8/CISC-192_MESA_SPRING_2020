@@ -4,6 +4,7 @@
 class Vector2D {
 
     public:
+
         double x,y;
 
         Vector2D();
