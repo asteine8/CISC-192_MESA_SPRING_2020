@@ -2,15 +2,14 @@
 #define TEST_H
 
 class Test {
-    public:
-        
-        template<class T>
-        void assertEquals(char* message, T expected, T actual, char* errMessage);
+  public:
+    template<class T>
+    void assertEquals(const char* message, T expected, T actual, const char* errMessage);
+    
+    template<class T>
+    void assertArrayEquals(char* message, T* expected, T* actual, char* errMessage);
 
-        template<class T>
-        void assertArrayEquals(char* message, T* expected, T* actual, char* errMessage);
-
-        void printCharPointer(char* str, bool useEndl = false);
+    void printCharPointer(const char* str);
 
 };
 
