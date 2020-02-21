@@ -10,7 +10,7 @@ class Test {
         template<class T>
         void assertArrayEquals(char* message, T* expected, T* actual, char* errMessage);
 
-        
+        void printCharPointer(char* str, bool useEndl = false);
 
 };
 
