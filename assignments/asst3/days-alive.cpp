@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include <stdlib.h>
 
 int pow(int val, int power) {
     int originalVal = val;
@@ -12,25 +13,13 @@ int pow(int val, int power) {
     return val;
 }
 
-int printWithCommas(int value) {
-    int numDigits = 1;
-    while ((value/10) > 0) {
-        numDigits++;
-        value /= 10;
-    }
+void printWithCommas(int value) {
+    char buffer[100];
 
-    int numChars = 0;
-    for (int i = numDigits; i > 0; i--) {
-        std::cout << (value%pow(10,i)) / pow(10,i-1);
-        numChars++;
+    itoa (value, buffer, 10);
 
-        if (i % 3 == 1 && i != 1) {
-            std::cout << ',';
-            numChars++;
-        }
-    }
+    printf("%s",buffer);
 
-    return numChars;
 }
 
 int main(int argc, char *argv[]) {
