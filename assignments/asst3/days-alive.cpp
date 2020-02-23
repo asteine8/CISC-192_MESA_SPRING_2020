@@ -13,34 +13,33 @@ int pow(int val, int power) {
     return val;
 }
 
-void printWithCommas(int value) {
-    char buffer[100];
-
-    itoa (value, buffer, 10);
-
-    printf("%s",buffer);
+void printWithCommas(long long value) {
 
 }
 
 int main(int argc, char *argv[]) {
-    int numYearsLived = 0;
-    int numMonths, numDays, numHours, numMinutes, numSeconds;
+    // initialize all as long long
+    long long numYears = 0;
+    long long numMonths, numDays, numHours, numMinutes, numSeconds;
 
     // Query user for number of years lived
     printf("Please enter the number of years you have lived: ");
-    if (scanf("%i", &numYearsLived) != 1 || numYearsLived<0) {
-        printf("Did not get a valid input. Please enter a positive integer value\n\n");
+    if (scanf("%i", &numYears) != 1 || numYears<=0) {
+        printf("Did not get a valid input. Please enter a positive, non-zero integer value\n\n");
         return 0;
     }
-    printf("You entered %i\n", numYearsLived);
+    printf("You entered: %i\n", numYears);
 
-    numMonths = numYearsLived * 12;
-    numDays = 0.5 + ((double)numYearsLived * 365.25);
-    numHours = numDays * 24;
-    numMinutes = numHours * 60;
-    numSeconds = numMinutes * 60;
+    // Calculate values
+    numMonths = numYears * 12LL;
+    numDays = 0.5 + ((double)numYears * 365.25);
+    numHours = numDays * 24LL;
+    numMinutes = numHours * 60LL;
+    numSeconds = numMinutes * 60LL;
+
+    printf("sizeof(<>): %d\n", sizeof(long long));
     
-    printf("Num seconds alive: %d\n", numSeconds);
+    printf("Num seconds alive: %lld\n", numSeconds);
     printWithCommas(numSeconds);
     std::cout<<std::endl;
 
