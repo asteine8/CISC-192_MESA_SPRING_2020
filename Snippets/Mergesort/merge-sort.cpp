@@ -1,5 +1,11 @@
 #include <iostream>
 #include <stdio.h>
+#include <cstdlib>
+#include <ctime>
+
+#define DEBUG 0
+#define ARRAY_SIZE 100000
+#define MAX_VAL 10
 
 using namespace std;
 
@@ -23,75 +29,83 @@ void mergeSort(int** array, int start, int end) {
         // Sort upper half
         mergeSort(array, middle, end);
     }
-
+    
+    #if DEBUG
     printf("start: %i, end:%i, numel:%i, middle:%i\n", start, end, numel, middle);
     prtArray(array, start, end);
     std::cout << std::endl;
+    #endif
     
-    int* temparr = new int[numel];
-    int* temparrPtr = temparr;
+    // int* temparr1 = new int[numel];
+    int temp[numel];
+    int* temparr1 = temp;
+    int* temparr2 = temparr1;
     int indexL = start;
-    int indexU = middle+1;
-    
+    int indexU = middle;
     
     // Merge into temp array
     while (true) {
         if (indexL == middle && indexU == end) break;
         if (indexL == middle) {
-            *temparrPtr = *array[indexU];
+            *temparr2 = *array[indexU];
             indexU++;
-            temparrPtr++;
+            temparr2++;
         }
         else if (indexU == end) {
-            printf("ow\n");
-            *temparrPtr = *array[indexL];
+            *temparr2 = *array[indexL];
             indexL++;
-            temparrPtr++;
+            temparr2++;
         }
         else if (*array[indexL] > *array[indexU]) {
-            printf("ow2\n");
-            *temparrPtr = *array[indexU];
+            *temparr2 = *array[indexU];
             indexU++;
-            temparrPtr++;
+            temparr2++;
         }
         else {
-            printf("ow3\n");
-            *temparrPtr = *array[indexL];
+            *temparr2 = *array[indexL];
             indexL++;
-            temparrPtr++;
+            temparr2++;
         }
     }
-    
 
     // Merge temp array into main array
     for (int i = start; i < end; i++) {
-        *array[i] = *temparr;
-        std::cout << *temparr << ',';
-        temparr++;
+        *array[i] = *temparr1;
+
+        #if DEBUG
+        std::cout << *temparr1 << ',';
+        #endif
+
+        temparr1++;
     }
+
+    #if DEBUG
     std::cout << std::endl;
-    
-    // delete[] temparr;
+    #endif
 }
 
-
-
 int main() {
+    srand(time(NULL));
 
-    int array[] = {4,2,8,9,3,7};
-    int* ptrArray[6];
+    int array[ARRAY_SIZE];
+    int* ptrArray[ARRAY_SIZE];
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        array[i] = rand() % MAX_VAL;
         ptrArray[i] = &(array[i]);
     }
 
-    mergeSort(ptrArray, 0, 6);
+    printf("Array Before: {");
+    prtArray(ptrArray, 0, ARRAY_SIZE);
+    cout << "}" << endl;
 
-    for (int i = 0; i < 6; i++) {
-        std::cout << *ptrArray[i] << ',';
-    }
+    mergeSort(ptrArray, 0, ARRAY_SIZE);
 
-    std::cout << std::endl;
+    printf("Array After: {");
+    prtArray(ptrArray, 0, ARRAY_SIZE);
+    cout << "}" << endl;
+
+    printf("sizeof(int):%li, std::size_t: %li\n", sizeof(int), sizeof(size_t));
 
     return 0;
 }
