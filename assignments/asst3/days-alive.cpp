@@ -66,17 +66,17 @@ int numChars(char* str) {
  * Converts value to a char array with commas and stores it in str
  */
 void to_str_with_commas(long long value, char* str) {
-    int digits = numDigits(value)-1;
+    int digits = numDigits(value);
 
     int digitValue;
-    for (int i = digits; i >= 0;) {
+    for (int i = digits; i > 0;) {
         if (i%3 == 0 && i != digits && i != 0) {
             *str = ',';
             str++;
         }
 
-        digitValue = value / pow(10LL, i);
-        value = value % pow(10LL, i);
+        digitValue = value / pow(10LL, i-1);
+        value = value % pow(10LL, i-1);
 
         *str = (char)(digitValue+0x30);
         str++;
