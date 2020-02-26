@@ -1,3 +1,14 @@
+/** 
+ * days-alive.cpp
+ * 
+ * This program takes the number of years you have spent alive and
+ * calculates the corresponding number or days, hours, minutes, and
+ * seconds you have spent in this living hell.
+ * 
+ * Alexandra Steiner - oryx26
+ * Feb 25th, 2020
+ */
+
 #include <iostream>
 #include <cstdio>
 #include <stdlib.h>
