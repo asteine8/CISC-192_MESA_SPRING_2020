@@ -32,13 +32,14 @@ R"(
     
         block [OPTION] <blocksize> <blocksperline> <msLineDelay>
 
-*   The block command formats data seperated by newlines and condenses it
-*   into blocks with specified width, specified number of blocks per
+*   The block command formats data seperated by newlines and condenses
+*   it into blocks with specified width, specified number of blocks per
 *   line, and allows for a delay between each output.
 *
 *   <blocksize>     : The number of characters in each block
 *                     (Not including terminator) [default: 10]
-*   <blocksperline> : The number of blocks printed per line [default: 1]
+*   <blocksperline> : The number of blocks printed per line
+*                     [default: 1]
 *   <msLineDelay>   : Waits this number of milliseconds before writing 
 *                     the next line [default: 100]  
 *
@@ -57,30 +58,35 @@ int blocksPerLine = 1;
 int msLineDelay = 100;
 
 int main(int argc, char* argv[]) {
-    // Set setting based on command line arguments
-    switch(argc-1) {
+    // Set settings based on command line arguments
+    if (argc == 1) {printf("Didn't recieve enough arguments, printing help: %s", helpInfo); return 0;}
+    // Test for [OPTION] value
+    int numOptions = 0;
+    while (argv[numOptions+1][0] == '-') {
+        switch (argv[numOptions+1][1]) {
+            case 'h': // Help
+                printf("Displaying help: %s", helpInfo);
+                return 0;
+            case 'd': // Debug
+            case 'v':
+                debug = true;
+                break;
+        }
+        numOptions++;
+        if (numOptions+1 >= argc) break;
+    }
+    
+    // Get general arguments
+    switch(argc-numOptions-1) {
         case 3: // block <blocksize> <blocksperline> <msLineDelay>
-            msLineDelay = atoi(argv[3]);
+            msLineDelay = atoi(argv[3+numOptions]);
         case 2: // block <blocksize> <blocksperline>
-            blocksPerLine = atoi(argv[2]);
+            blocksPerLine = atoi(argv[2+numOptions]);
         case 1: // block <blocksize>
-            // Test for [OPTION] value
-            if (argv[1][0] == '-') {
-                switch (argv[1][1]) {
-                    case 'h': // Help
-                        printf("Displaying help: %s", helpInfo);
-                        return 0;
-                    case 'd': // Debug
-                    case 'v':
-                        debug = true;
-                        break;
-                }
-            }
-            // Otherwise, treat this as blocksize
-            else blockSize = atoi(argv[1]);
+            blockSize = atoi(argv[1+numOptions]);
             break;
         case 0: // Display Help
-            printf("Didn't recieve any arguments, printing help: %s", helpInfo);
+            printf("Didn't recieve enough arguments, printing help: %s", helpInfo);
             return 0;
     }
 
@@ -153,7 +159,12 @@ int main(int argc, char* argv[]) {
     // Flush and add a newline at the end
     std::cout << std::endl;
 
-    if (debug) printf("blkSize: %i\nblksperline: %i\nmsLineDelay: %i\n", blockSize, blocksPerLine, msLineDelay);
+    if (debug) {
+        printf("+++ Debug Stuff +++\n");
+        printf("blkSize: %i\nblksperline: %i\nmsLineDelay: %ims\n", blockSize, blocksPerLine, msLineDelay);
+        printf("Lines Printed: %i\n", lineNumber);
+
+    }
 
     // yay!, we did it!
     return 0;
