@@ -95,17 +95,17 @@ int main() {
         ptrArray[i] = &(array[i]);
     }
 
-    printf("Array Before: {");
-    prtArray(ptrArray, 0, ARRAY_SIZE);
-    cout << "}" << endl;
+    // printf("Array Before: {");
+    // prtArray(ptrArray, 0, ARRAY_SIZE);
+    // cout << "}" << endl;
 
     mergeSort(ptrArray, 0, ARRAY_SIZE);
 
-    printf("Array After: {");
+    // printf("Array After: {");
     prtArray(ptrArray, 0, ARRAY_SIZE);
-    cout << "}" << endl;
+    // cout << "}" << endl;
 
-    printf("sizeof(int):%li, std::size_t: %li\n", sizeof(int), sizeof(size_t));
+    // printf("sizeof(int):%li, std::size_t: %li\n", sizeof(int), sizeof(size_t));
 
     return 0;
 }
