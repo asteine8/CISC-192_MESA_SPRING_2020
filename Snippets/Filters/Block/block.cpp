@@ -1,3 +1,15 @@
+/** 
+ * block.cpp
+ * 
+ * This propgram formats data seperated by newlines and condenses it
+ * into blocks with specified width, specified number of blocks per
+ * line, and allows for a delay between each output. block.cpp is meant
+ * to act as a CLI output pump and has the command line options to boot.
+ * 
+ * Alexandra Steiner - oryx26
+ * Feb 27th, 2020
+ */
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,8 +24,6 @@
 #else
     #include <unistd.h>
 #endif
-
-#define DEBUG 1
 
 using namespace std;
 
@@ -33,10 +43,9 @@ R"(
 *                     the next line [default: 100]  
 *
 *       ++OPTIONS++
-
-           -h -help : Displays this help message
-           -d -v    : Displays debug messages
 *
+*          -h -help : Displays this help message
+*          -d -v    : Displays debug messages
 *
 
 )";
@@ -146,5 +155,6 @@ int main(int argc, char* argv[]) {
 
     if (debug) printf("blkSize: %i\nblksperline: %i\nmsLineDelay: %i\n", blockSize, blocksPerLine, msLineDelay);
 
+    // yay!, we did it!
     return 0;
 }
