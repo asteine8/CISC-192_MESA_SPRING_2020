@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\def\code#1{\texttt{#1}}
+\def\codeblock#1{\fbox{\texttt{#1}}}
+
+
+\begin{document}
+
+\section{General IO}
+\begin{itemize}
+	\item \code{\#include <iostream>} IOStream package (members are in \code{namespace std})
+	\begin{itemize}
+		\item \codeblock{std::cout << output1 << output2 << ...} - Prints outputs to output stream
+		\item \codeblock{std::cout.put(someOutput)} - Prints a single, unformatted character to output stream. \code{someOutput} is of type \code{char}.
+		\item \codeblock{std::cin >> var} - Gets input from the input stream and stores it into var. Input is cast to type of var.
+		\item \codeblock{char c = std::cin.get()} - Gets a single, unformatted character from the input stream.
+	\end{itemize}
+	\item \code{\#include <stdio.h>} Standard IO Library
+	\begin{itemize}
+		\item \codeblock{printf("myInt: \%i, myString\%s", 40, "hello")
+	\end{itemize}
+\end{itemize}
+
+\section{Operators and Expressions}
+
+\section{Control Sructures}
+
+\section{Functions}
+
+\section{Objects}
+	
+\end{document}
