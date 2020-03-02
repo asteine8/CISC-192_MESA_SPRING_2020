@@ -6,9 +6,13 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage[utf8]{inputenc}
 
 \def\code#1{\texttt{#1}}
 \def\codeblock#1{\fbox{\texttt{#1}}}
+
+\hyphenpenalty=10000
+\hbadness=10000
 
 \lstset{
 language=C++,
@@ -16,7 +20,16 @@ frame=single,
 texcl
 }
 
+\title{CISC 192 Reference}
+\author{Alexandra Steiner}
+
 \begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
 
 \section{General IO}
 \begin{itemize}
@@ -48,7 +61,7 @@ texcl
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{SRC/order-of-ops}
-  \caption{Order of Operations in C++}
+  \caption{Order of Operations in C++. Graphic pulled from Wikipedia}
 \end{figure}
 
 \subsection{Bitwise Operators}
@@ -120,6 +133,14 @@ for (int X = 0; X < 10; X++) {
 
 \section{Functions}
 
+\subsection{General Function Structure}
+\begin{lstlisting}
+<return type> functionName(<type> arg1, ...) {
+	// Do something
+	return <value to be returned>;
+}
+\end{lstlisting}
+
 \subsection{Arguments by Value}
 \begin{lstlisting}
 int add(int arg1, int arg2) {
@@ -157,5 +178,55 @@ add(X, Y, Z);
 \end{lstlisting}
 
 \emph{Note:} passing by reference is only shorthand for passing arguments by pointer value (address). However, it can be confusing to work with since the syntax are nearly the same as passing by value so don't use them unless you know what you're doing.
-	
+
+\section{Objects}
+
+\subsection{Structs}
+Basic implementation of a struct:
+\begin{lstlisting}
+struct Vector3D {
+	double x;
+	double y;
+	double z;
+};
+
+Vector3D vect;
+vect.x = 10;
+cout << vect.x << endl;
+\end{lstlisting}
+\emph{Note:} struct member properties cannot be initialized to a value \emph{unless} they are a static member property
+\\
+\\
+Implementation of a struct with an overloaded constructor function:
+\begin{lstlisting}
+struct Vector3D {
+	double x;
+	double y;
+	double z;
+	Vector3D() {
+		x = 0;
+		y = 0;
+		z = 0;
+	}
+	Vector3D(int X, int Y, int Z) {
+		x = X;
+		y = Y;
+		z = Z;
+	}
+};
+
+Vector3D vect1; // Called with default constructor
+Vector3D vect2(1,2,-1);
+\end{lstlisting}
+
+Example of a struct with static member properties:
+\begin{lstlisting}
+struct Student {
+	static s_value;
+};
+
+cout << Student::s_value << endl;
+\end{lstlisting}
+\emph{Note: } the static keyword associates a member property or method to the class itself instead of a specific instance of a class.
+
 \end{document}
