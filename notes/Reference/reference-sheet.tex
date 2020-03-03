@@ -229,4 +229,31 @@ cout << Student::s_value << endl;
 \end{lstlisting}
 \emph{Note: } the static keyword associates a member property or method to the class itself instead of a specific instance of a class.
 
+\section{Unix Terminal Commands}
+
+\subsection{Directory and File Management}
+\begin{enumerate}
+	\item \codeblock{cd <directory name>} - Changes the current directory to the specified sub-directory. Use \codeblock{cd ..} to change to the superdirectory of the current directory
+	\item \codeblock{ls} - Displays the contents in the current directory. \codeblock{ls -a} shows more detailed information about these contents including permissions and ownership
+	\item \codeblock{tree} - Display all subdirectories and files in the current directory
+	\item \codeblock{mkdir <directory name>} - Creates a new directory in the current directory.
+	\item \codeblock{rmdir <directory name>} - Deletes a directory.
+	\item \codeblock{rm <file name>} - Deletes a file
+\end{enumerate}
+
+\subsection{Special Characters}
+\begin{enumerate}
+	\item \codeblock{*} - Matches 0 or more occurances of any character. Ex: \codeblock{ls a*} matches \code{a.out}, \code{asst3/}, and \code{a/}
+	\item \codeblock{?} - Matches a single occurance of any character. Ex: \codeblock{ls file?.exe} matches \code{file1.exe} and \code{filee.exe}.
+	\item See \url{https://docstore.mik.ua/orelly/unix/upt/ch08_19.htm} for more details
+\end{enumerate}
+
+\subsection{PSCP Command}
+\begin{enumerate}
+	\item \codeblock{pscp oryx**@209.129.16.61:<some file> .} - Copies file from buffy into current directory
+	\item \codeblock{pscp <some file> oryx**@209.129.16.16:<some directory>} - Copies file into some directory on buffy
+	\item \codeblock{pscp -r <some directory> oryx**@209.129.16.61:<some directory>} - Copies directory and all subdirectories and files recursivly into specified location on buffy. Good for uploading codeblocks projects.
+\end{enumerate}
+
+
 \end{document}
