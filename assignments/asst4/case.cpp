@@ -7,7 +7,7 @@ CASE caseSetting = CASE::LOWER;
 // A nice help string to display
 const char* helpinfo = 
 R"(
-    case [ OPTIONS ]
+    case [ OPTIONS ] < infile
 
         Reads standard input and changes its case as specified
         in [ OPTIONS ]
@@ -15,17 +15,23 @@ R"(
 
     ### Options ###
 
-        -l : Converts all alphabetical characters to lowercase
+        -l -L : Converts all alphabetical characters to lowercase
 
-        -u : Converts all alphabetical characters to uppercase
+        -u -U : Converts all alphabetical characters to uppercase
 
-        -h : Displays this help text
+        -h    : Displays this help text
 )";
 
 char toLower(char c);
 char toUpper(char c);
 
 int main(int argc, char** argv) {
+    // Display help if no options are selected
+    if (argc == 1) {
+        std::puts(helpinfo);
+        return 0;
+    }
+
     // Handle Properties
     for (int i = 1; i < argc; i++) {
         // Check if this is a property
@@ -34,9 +40,11 @@ int main(int argc, char** argv) {
                 case 'l': // To lowercase
                     caseSetting = CASE::LOWER;
                     break;
+                case 'U':
                 case 'u': // To uppercase
                     caseSetting = CASE::UPPER;
                     break;
+                case 'H':
                 case 'h': // Display help
                     std::puts(helpinfo);
                     return 0;
@@ -64,11 +72,14 @@ int main(int argc, char** argv) {
     return 0;
 }
 
+// Convert character if alphabetic to lowercase
 char toLower(char c) {
     if (c >= 0x41 && c <= 0x5A) {
         return c + 0x20;
     }
 }
+
+// Convert character if alphabetic to uppercase
 char toUpper(char c) {
     if (c >= 0x61 && c <= 0x7A) {
         return c - 0x20;
