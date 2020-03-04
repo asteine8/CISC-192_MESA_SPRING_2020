@@ -239,12 +239,16 @@ cout << Student::s_value << endl;
 	\item \codeblock{mkdir <directory name>} - Creates a new directory in the current directory.
 	\item \codeblock{rmdir <directory name>} - Deletes a directory.
 	\item \codeblock{rm <file name>} - Deletes a file
+	\item \codeblock{cat <file name>} - Writes contents of file to standard output
+	\item \codeblock{cat <file1> <file2> <file3> ...} - Concatenates files in order specifed and writes contents to standard output
 \end{enumerate}
 
 \subsection{Special Characters}
 \begin{enumerate}
 	\item \codeblock{*} - Matches 0 or more occurances of any character. Ex: \codeblock{ls a*} matches \code{a.out}, \code{asst3/}, and \code{a/}
 	\item \codeblock{?} - Matches a single occurance of any character. Ex: \codeblock{ls file?.exe} matches \code{file1.exe} and \code{filee.exe}.
+	\item \codeblock{.} - Current Directory
+	\item \codeblock{..} - Super Directory
 	\item See \url{https://docstore.mik.ua/orelly/unix/upt/ch08_19.htm} for more details
 \end{enumerate}
 
