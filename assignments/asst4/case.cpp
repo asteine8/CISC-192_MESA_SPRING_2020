@@ -1,3 +1,14 @@
+/** 
+ * case.cpp
+ * 
+ * This program converts text from the standard input stream to
+ * either uppercase or lowercase depending on command line
+ * arguments.
+ * 
+ * Alexandra Steiner - oryx26
+ * March 3rd, 2020
+ */
+
 #include <stdio.h>
 #include <iostream>
 
