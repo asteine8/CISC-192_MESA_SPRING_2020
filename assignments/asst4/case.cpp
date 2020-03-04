@@ -85,14 +85,14 @@ int main(int argc, char** argv) {
 
 // Convert character if alphabetic to lowercase
 char toLower(char c) {
-    if (c >= 0x41 && c <= 0x5A) {
-        return c + 0x20;
+    if (c >= 'A' && c <= 'Z') {
+        return c | 0x20;
     }
 }
 
 // Convert character if alphabetic to uppercase
 char toUpper(char c) {
-    if (c >= 0x61 && c <= 0x7A) {
-        return c - 0x20;
+    if (c >= 'a' && c <= 'z') {
+        return c & (~0x20);
     }
 }
