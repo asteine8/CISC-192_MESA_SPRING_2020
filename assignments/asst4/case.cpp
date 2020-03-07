@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
     // Display help if no options are selected
     if (argc == 1) {
         std::puts(helpinfo);
-        return 255;
+        return 0;
     }
 
     // Handle Properties
