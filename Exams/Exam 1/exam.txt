@@ -1,0 +1,135 @@
+First Test, Spring, 2020
+
+PLEASE SUBMIT THIS TEST BY THE END OF SATURDAY, MAR 15 at 5:30
+PM, SO I CAN LET EVERYBODY SEE THEIR GRADES IN A TIMELY MANNER.  
+
+Don't Guess when you can guarantee your grade by making sure.
+YOU have total control over the grad you get from any "take home"
+tests. 
+
+Record your answers as a list of question numbers followed by the
+letter of your answer choice.  Please don't edit and submit the
+whole test file, the software won't be able to grade it,
+Copy / paste and send in the body of an email message to the instructor.
+No Attachments.
+
+Remember how literal machines are.
+
+1. C and C++ are languages in which the programmer writes readable
+source code which is then compiled into an executable binary. (T/F)
+
+2. Every C program must have one and only one function named MAIN()
+   (T/F)
+
+3. In a valid program, what will the following statement print:
+
+   cout << ((2 + 1) < 4) << endl ;
+
+    a. "1", because < means subtract
+    b. "1", because 1 is true and 0 is false
+    c. nothing, because the statement will cause an error
+    d. "7", because < means add
+    e. huh?
+
+4. Preprocessor directives take effect at
+
+    a. pre-compile time
+    b. run time 
+    c. lunch time
+    d. edit time
+    e. no answer can be certain 
+
+5. The character '\n' causes the display of text to skip to the next line. (T/F).
+
+6. The files which " #include <> " provides are human-readable text. (T/F).
+
+7. C++ statements end with a ';' (semicolon). (T/F).
+
+8. When a variable is defined inside of a { } block, it cannot be seen
+   or changed from outside that block. (T/F).
+
+9. If we call a function with the statement blotch(blue, green)
+         what purpose do blue and green serve?
+
+     a. they are "arguments" we're passing to the function blotch()
+	  	
+     b. they are the addresses of the function and the calling
+     program
+	  	
+     c. they are the addresses of the variables which  we want
+     blotch() to be able to access and/or modify. 
+
+     d. they are the addresses of library routines needed by the
+     function.
+
+10. The source code for one C++ function cannot contain the source code
+for another ("nested") C++ function. (T/F).
+
+11. Which is true?
+     a. One C++ function can call another C++ function.
+     b. Only main() can call other functions().
+
+12. A C/C++ function can only return one value (unless it returns a
+pointer to an array). (T/F).
+
+13. The C language is contained in C++. (T/F).
+
+14. cout and printf:
+    a. allow programs to talk to users
+    b. allow users to provide information to programs
+
+15. The Order of Execution (simplified) is:
+    a. Assignment, Relational, Function Call
+    b. Arithmetic, Assignment, Relational
+    c. Arithmetic, Relational, Assignment
+    d. Relational, assignment, Arithmetic
+    e. Assignment, Relational, Arithmetic
+
+16. A variable:
+    a. always occupies 4 bytes
+    b. can contain values of any type
+    c. cannot have its contents changed once a value is assigned
+    d. must be > 0
+    e. none of these
+
+17. In building Unix, C was used for the kind of work that had
+previously only been done with Assembly Language.(T/F).
+
+18. The code:
+    int x = 9 ;
+    cout << ++x ;
+
+will print:
+     a. 10 
+     b. 9 
+     c. 8
+     d. 1
+     e. error
+
+19. How many bytes are taken up by 'C' and "C" respectively?
+    a. 1, 1
+    b. 2, 2
+    c. 1, 2
+    d, 2, 1
+    e. none of these
+
+20. Which of these arrays takes up more memory space on buffy?
+
+    a. int a[5] ;
+    b. long [2] ;
+    c. char  s[81] = {"Oh, woe!"} ;
+    d. int * ip[2] ;
+    e. impossible to tell
+
+21. On Buffy, when you don't use "-o" with cc or g++, the default name for
+the executable is "a.out". (T/F).
+
+22. C was developed from the BASIC language in 1970. (T/F).
+
+23. Once you've fixed the compiler errors, the program is guaranteed
+    to perform properly. (T/F).
+
+24. The "char" type is really just a very small float. (T/F).
+
+25. The Internet spread as fast as it did because Unix was written in
+    C instead of Assembler. (T/F).
