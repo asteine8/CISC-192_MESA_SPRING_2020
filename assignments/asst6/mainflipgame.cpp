@@ -6,7 +6,13 @@
 *	invocations flip() will return true.)
 *	T.E. Harrisburg
 *  Sun Dec  1 23:22:16 PST 2019
+
+*   Edited by Alexandra Steiner (4/12/20)
+*		- Added flip.h and flip.cpp for flip function
+*		- Localized getchne.h
+*		- Created src folder to hold dependancies
 -----------------------------------------------------------------*/
+
 #include <cstdio>
 #include <cctype>
 #include <iostream>
