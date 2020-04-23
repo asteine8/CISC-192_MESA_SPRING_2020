@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
     // Display help if no options are selected
     if (argc == 1) {
         std::puts(helpinfo);
-        return 0;
+        return 255;
     }
 
     // Handle Properties
@@ -48,6 +48,7 @@ int main(int argc, char** argv) {
         // Check if this is a property
         if (argv[i][0] == '-') {
             switch (argv[i][1]) {
+                case 'L':
                 case 'l': // To lowercase
                     caseSetting = CASE::LOWER;
                     break;
