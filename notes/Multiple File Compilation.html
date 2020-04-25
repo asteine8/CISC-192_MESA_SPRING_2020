@@ -1,0 +1,248 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.73 [en] (Win98; U) [Netscape]">
+   <meta name="Author" content="Bob Myers">
+   <title>Multiple File Compilation</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+<h1>Multiple File Compilation</h1>
+
+<h2>
+Multiple File Projects:</h2>
+
+Most of the time, full programs are not contained in a single file.&nbsp;
+Many small programs are easy to write in a single file, but larger programs
+involve separate files containing different modules. 
+Usually, files are separated by related content.
+
+<p>A class module normally consists of: 
+
+<ul>
+<li> A header file - contains 
+the declaration of the class (without implementation details)</li>
+
+<li>
+An implementation file - contains implementations of the class members</li>
+
+</ul>
+
+<p><u>Filenames</u>:
+<br>Header files are usually in the format <tt><i>filename</i>.h</tt>, 
+and implementation files are usually in the format 
+<tt><i>filename</i>.cpp</tt>.
+
+It is a good idea to use the same base filename for corresponding header
+and implementation files. Example:
+<pre>
+ circle.h    // header file for a class called Circle 
+ circle.cpp  // implementation file for Circle class 
+</pre>
+
+Filenames do not have to be the same as the class name, but well-chosen 
+filenames can help identify the contents or purpose of a file.
+
+<p>When classes are used in a program, the main program would usually be
+written in a separate file.
+<br>&nbsp;
+
+<h2>
+Compilation</h2>
+The "compilation" of a program actually consitsts of two major stages.
+
+<ol>
+<li><b>Compile stage</b>
+ <ul>
+ <li>Syntax checked for correctness.</li>
+
+ <li>Variables and function calls checked to insure that correct declarations
+     were made and that they match. (Note:& The compiler doesn't need to 
+     match function definitions to their calls at this point).</li>
+
+ <li>Translation into <b>object code</b>. Object code is just a 
+     translation of your code file -- it is not an executable program, at 
+     this point. (Note: the word "object" in object code does not 
+     refer to the definition of "object" that we use to define 
+     object-oriented programming. These are different terms.)</li>
+
+ </ul>
+</li>
+
+<li><b>Linking stage</b>
+ <ul>
+ <li>Links the object code into an executable program.</li>
+
+ <li>May involve one or more object code files.</li>
+
+ <li>The linking stage is the time when function calls are matched up 
+     with their definitions, and the compiler checks to make sure it has 
+     one, and only one, definition for every function that is called.</li>
+
+ <li>The end result of linking is usually an executable program.</li>
+ </ul>
+</li>
+</ol>
+
+<h4>Putting together a multiple-file project</h4>
+For a simple example like our Fraction example, it may be tempting to simply use the following
+statement inside the main.cpp file:
+<pre>
+  #include "frac.cpp"
+</pre>
+
+and then just compile the main.cpp file with a single command.  This will
+work in this example, because it's a linear sequence of #includes -- this
+essentially causes the whole thing to be put together into one file as 
+far as the compiler is concerned.  
+This is <b>not</b> a good idea in the general case.  Sometimes the line-up
+of files is not so linear.  The separate ideas of <b>compiling</b> and
+<b>linking</b> allow these steps to be done separately and there are some
+good reasons and benefits:
+
+<ul>
+<li>Changes to a file require only that file to be re-compiled (rather than everything), 
+along with the re-linking</li>
+<li>Often, libraries are distributed in pre-compiled format, so trying to #include the .cpp
+file would not even be feasible.  (A pre-compiled library would still give you the actual
+.h file for the #include statements, to satisfy declare-before-use in your own code).
+</ul>
+
+<p><b>Rule of thumb:</b>  Only #include the header files, not the .cpp files!
+
+
+<h4>
+Visual C++</h4>
+
+<ul>
+<li>To build a simple project with multiple files in Visual C++, 
+first follow all of the usual directions for creating an empty project</li>
+
+<li>For creating more code files to go into a project, use the "Add New 
+Item" under the "Project" menu to add new C++ code files.</li>
+
+<li>To add an <i>existing</i> code file to a project, choose "Add 
+Existing Item" under the "Project" menu</li>
+
+<li>Header files should end in <tt>.h</tt>, and they are included into 
+regular code files with the <tt>#include</tt> directive</li>
+
+<li>Implementation files should end in <tt>.cpp</tt></li>
+
+<li>An executable can consist of many files, but can have only one 
+<tt>main()</tt> function!</li>
+
+</ul>
+
+
+
+<h4>
+Example CS account (g++) commands for compilation and linking:</h4>
+<pre>
+g++ -c frac.cpp                // translates frac.cpp into object code, frac.o 
+g++ -c main.cpp                // translates main.cpp into object code, main.o 
+g++ frac.o main.o -o sample    // links object code files into an executable called "sample" 
+</pre>
+
+<h4>Building basic multiple-file projects</h4>
+<ul>
+<li><a href="../../howto/g++compiling.txt">Compiling with g++</a></li>
+
+<li><a href="../../howto/makefiles.txt">
+Makefiles (for use with the unix "make" utility - e.g. with g++)</a></li>
+
+<!--
+<li><a href="../../howto/visualc++.html">
+Compiling with Visual C++ 6.0</a> (console applications)</li>
+
+</ul>
+<hr>
+
+<!--
+
+<h3>
+Types of Errors:</h3>
+<ol>
+<li>Compilation errors -- usually syntax errors, undeclared variables
+and functions, improper function calls.</li>
+<li>Linker errors -- usually involve undefined functions or 
+multiply-defined functions or symbols</li>
+<li>Run-time errors -- two varieties.
+ <ol type="a">
+  <li>Fatal -- cause program to crash during execution</li>
+  <li>Non-fatal (or logical) -- don't crash the program, but produce 
+      erroneous results.</li>
+ </ol>
+</li>
+</ol>
+
+<p>Compilation and linker errors result in a failed compilation of the
+program.
+<br>Run-time errors occur while the program is running (after successful
+compilation).
+<br>&nbsp;
+<h3>
+Debugging:</h3>
+<b>Compile stage errors:</b>&nbsp; These are errors that will be reported
+by the compiler, which usually provides a filename and line number indicating
+where it ran into trouble, for each error reported.
+<p>Tips and suggestions:
+<ol>
+
+<li>Always start at the <b>top</b> of the list of errors.
+Fix the first error, then recompile and see what is left.</li>
+
+<li>If a list of errors is too long, compile and debug one file
+at a time.</li>
+
+<li>When searching for an error, start with the indicated line
+number, but also look in the vicinity (usually previous lines) for the
+possible error.</li>
+
+<li>Compile portions of programs as you go -- don't wait until
+the program is fully written to do the first compile!</li>
+
+</ol>
+
+<p><br><b>Linking stage errors:</b> These errors, also reported by
+the compiler, do not usually contain line numbers, since the linker works
+on object code, <b>not</b> on the original source code.
+<p>Tips:
+<ol>
+
+<li>Learn what kinds of problems cause linker errors (usually problems
+with agreement between definitions and calls).</li>
+
+<li>Linker errors usually specify some kind of symbol (used by
+the compiler), which often resembles a function or variable name.
+This is usually a good clue.</li>
+
+<li>Learn about good compilation techniques and pre-processor directives
+that help avoid linker errors.</li>
+
+</ol>
+
+<p>Try fixing the compile and linker errors on <a href="../examples/debug">this
+example program</a>.
+
+<p><b>Run-time errors:</b>&nbsp; These must be tested while running a fully-compiled
+program.
+<p>Tips:
+
+<ol>
+
+<li>To catch fatal errors, try to wedge the mistake between extra
+printout statements to locate the cause.</li>
+
+<li>To catch logic errors, place extra printout statements in code
+while testing (to be removed in the finished version). Especially,
+print out values of internal variables to locate computation 
+problems.</li>
+
+</ol>
+<br>&nbsp;
+<br>&nbsp;
+-->
+
+</body>
+</html>
