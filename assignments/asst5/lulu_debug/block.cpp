@@ -34,11 +34,3 @@ int main (int argc, char *argv[], char **env)
         }
     }
 }
-
-char c ;
-c = cin.get() ;
-while ( ! cin.eof())
-{
-    cout.put(c )  ;
-    c = cin.get() ;
-}
