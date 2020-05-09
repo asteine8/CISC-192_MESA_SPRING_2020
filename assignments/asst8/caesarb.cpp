@@ -160,6 +160,9 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    // Newline at end for style >_<
+    std::cout << std::endl;
+
     return 0;
 }
 
