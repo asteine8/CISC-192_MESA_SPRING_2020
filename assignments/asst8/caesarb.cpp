@@ -12,10 +12,13 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <cmath>
 
-#define DEBUG 0
+
+bool DEBUG = false;
 
 static const char* help_info = 
 R"(caesarb -[option] < infine
@@ -25,7 +28,11 @@ Applies a Caesar Block Cypher to the input stream.
     [option] - An optional argument
 
         -h -H => Displays this help message
+
+        -d -D => Displays debug messages
 )";
+
+int randAlpha();
 
 // Node structure for linked list
 struct node {
@@ -74,6 +81,9 @@ class LinkedString {
 };
 
 int main(int argc, char* argv[]) {
+    // Initialize Randomizer
+    srand(time(NULL));
+
     // Handle Options
     if (argc > 1) {
         switch (argv[1][1]) {
@@ -81,6 +91,11 @@ int main(int argc, char* argv[]) {
             case 'H': // Display help
                 std::cout << help_info << std::endl;
                 return 255;
+                break;
+            case 'd':
+            case 'D': // Display debug messages
+                printf("### Initialized with debug mode ### \n");
+                DEBUG = true;
                 break;
         }
     }
@@ -99,9 +114,9 @@ int main(int argc, char* argv[]) {
     // Get matrix dimensions. Ceiling round to ensure we can fit everything
     int squareSize = ceil(sqrt(inString.length));
 
-    #if DEBUG==1
-    printf("numchars = %i | sqrsize = %i\n", numChars, squareSize);
-    #endif
+    if (DEBUG==1) {
+        printf("numchars = %i | sqrsize = %i\n", inString.length, squareSize);
+    }
 
     // Initialize matrix to store input stream
     int** inputmatrix = new int*[squareSize];
@@ -113,29 +128,25 @@ int main(int argc, char* argv[]) {
     node *n = inString.getHead();
     for (int row = 0; row < squareSize; row++) {
         for (int col = 0; col < squareSize; col++) {
-            if(n->next != NULL) {
-                // Go through inString until we get an alnum char
-                if (isalnum(n->c)) {
-                    inputmatrix[row][col] = n->c;
-                    #if DEBUG==1
-                    printf("%c ", n->c);
-                    #endif
-                }
-                else {
-                    // lets try this again...
-                    col--;
-                }
+            if(n != NULL) {
+
+                // Add next character to matrix
+                inputmatrix[row][col] = n->c;
 
                 // Get next node
                 n = n->next;
             }
             else { // End of string reached: fill with '\0' characters
-                inputmatrix[row][col] = '\0';
+                inputmatrix[row][col] = randAlpha();
+            }
+
+            if (DEBUG==1) {
+                printf("%c ", inputmatrix[row][col]);
             }
         }
-        #if DEBUG==1
-        printf("\n");
-        #endif
+        if (DEBUG==1) {
+            printf("\n");
+        }
     }
 
     int cOutput = '\0';
@@ -145,11 +156,14 @@ int main(int argc, char* argv[]) {
 
             cOutput = inputmatrix[row][col];
             // Check to make sure this isn't a blank cell
-            if (cOutput != '\0') {
-                std::cout.put(cOutput);
-            }
+            std::cout.put(cOutput);
         }
     }
 
     return 0;
+}
+
+// Function that returns a random, lowercase alphabetical character
+int randAlpha() {
+    return (rand() % 26) + 0x61;
 }
