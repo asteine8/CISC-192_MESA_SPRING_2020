@@ -9,14 +9,16 @@ int main() {
     long long years, days, hours, minutes, seconds;
     printf("Enter how many years you have lived: ");
     scanf("%lli", &years);
+
+    // Calculations
     days=0.5+((double)years*365.25);
     hours=days*24LL;
     minutes=hours*60LL;
     seconds=minutes*60LL;
 
 
-    std::string yearStr = std::to_string(years);
-    std::string yearStrWithCommas = commas(yearStr, 3);
+    std::string yearStr = std::to_string(years); // Convert long long to string
+    std::string yearStrWithCommas = commas(yearStr, 3); // Generate comma seperated string
 
     std::string dayStr = std::to_string(days);
     std::string dayStrWithCommas = commas(dayStr, 3);
@@ -30,6 +32,7 @@ int main() {
     std::string secondStr = std::to_string(seconds);
     std::string secondStrWithCommas = commas(secondStr, 3);
 
+    // Print out results
     printf("%-8s: %-25s \n", "Years", yearStrWithCommas.c_str());
     printf("%-8s: %-25s \n", "Days", dayStrWithCommas.c_str());
     printf("%-8s: %-25s \n", "Hours", hourStrWithCommas.c_str());
